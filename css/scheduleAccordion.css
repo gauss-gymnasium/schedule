@@ -1,0 +1,109 @@
+.accordion {
+    width: 100%;
+    margin-bottom: 0.3rem;
+}
+
+.accordion .card {
+    display: inline-block;
+    border-radius: 0.4rem;
+}
+
+.accordion .card-body {
+    padding: 0.7rem 0.5rem;
+}
+
+.accordion .card, .accordion .card-header {
+    border-color: #fff;
+}
+
+.accordion .card-header {
+    padding: 0.4rem 0.7rem;
+    background-color: #fff;
+    color: #006db1;
+}
+
+.accordion .accordion-item {
+    border-width: 0;
+}
+
+.accordion .accordion-body {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.75rem 0.9rem;
+}
+
+.accordion .accordion-body, .accordion .card {
+    background-color: #006db1;
+    color: #fff;
+}
+
+.accordion .accordion-button {
+    font-size: 1.1rem;
+    padding: 0.75rem 0.9rem;
+    background-color: #ebebeb;
+    box-shadow: none;
+}
+
+.accordion .accordion-button:hover, .accordion .accordion-button:focus-visible {
+    background-color: #f2f2f2;
+}
+
+.accordion .accordion-item:not(:last-child) .accordion-button {
+    border-bottom: 0;
+}
+
+.accordion .accordion-button {
+    border: 1px solid #808080;
+}
+
+.accordion .accordion-button:not(.collapsed) {
+    background-color: #004774;
+    color: #fff;
+    border-color: transparent;
+}
+
+.accordion .accordion-button::after {
+    background-size: 1rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+}
+
+.accordion .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+}
+
+.accordion .period-badge {
+    font-size: 1em;
+    color: #006db1;
+    background-color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.6rem;
+    margin-right: 0.1em;
+}
+
+.accordion .period-badge-small {
+    font-size: 0.7em;
+    font-weight: normal;
+    margin-left: 0.6em;
+}
+
+.lesson-list-item:not(:last-child) {
+    margin-bottom: 0.5em;
+}
+
+.lesson-list-item, .lesson-list-item::marker {
+    list-style-image: none !important;
+    list-style-type: none;
+}
+
+.lesson-list .lesson-list-item.new-changes .period-badge, .period-badge.new-changes {
+    background-color: rgb(255, 157, 0);
+    color: #fff;
+}
+
+.lesson-list .lesson-list-item.new-changes {
+    color: rgb(255, 157, 0);
+}

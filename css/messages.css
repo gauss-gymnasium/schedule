@@ -1,0 +1,59 @@
+.message {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    width: 100%;
+    display: table;
+}
+
+.info-message {
+    color: #fff;
+    background-color: #ff7600;
+}
+
+.warning-message {
+    color: #fff;
+    background-color: #d10000;
+}
+
+.help-message {
+    color: #fff;
+    background-color: #006ba3;/*727272*/
+}
+
+.message-icon {
+    line-height: 0;
+    margin-right: 0.7rem;
+    font-size: 3rem !important;
+}
+
+.message-text {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.message a {
+    border-bottom: 1px dotted !important;
+}
+
+.message a:hover, .message a:focus-visible {
+    border-bottom: 1px solid !important;
+}
+
+.message a:active {
+    text-decoration: underline;
+    border-style: none;
+}
+
+.info-message a {
+    color: #ffd7b4 !important;
+}
+
+.warning-message a {
+    color: #ffc1c1 !important;
+}
+
+.help-message a {
+    color: #abd7fd !important;
+}

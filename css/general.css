@@ -1,0 +1,114 @@
+#maincontent h1.title {
+    /* Counteract missing news column on the right */
+    width: 107.75%;
+    padding-left: 3.85%;
+    padding-right: 3.85%;
+    margin-left: -3.85%;
+}
+
+#leftcolumn {
+    width: 24%;
+}
+
+#rightcolumn {
+    min-height: 13rem;
+    box-sizing: border-box;  /* Make width of accordion work */
+    /* Counteract missing news column on the right */
+    margin-right: 2.5%;
+    width: 73.5%;
+}
+
+@media screen and (max-width: 965px) {
+    #leftcolumn {
+        width: 25%;
+    }
+
+    #rightcolumn {
+        width: 72.5%;
+    }
+}
+
+@media screen and (max-width: 875px) {
+    #leftcolumn {
+        width: 32%;
+    }
+
+    #rightcolumn {
+        width: 65.5%;
+        padding-right: 0;
+    }
+
+    #maincontent h1.title {
+        width: 104.5%;
+        padding-left: 4.2%;
+        padding-right: 4.2%;
+        margin-left: -4.2%;
+    }
+}
+
+@media screen and (max-width: 665px) {
+    #leftcolumn {
+        position: fixed;
+        float: none;
+        width: 100%;
+        padding-top: 7rem;
+    }
+
+    #maincontent h1.title {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #rightcolumn {
+        float: none;
+        width: 95%;
+        padding: 0px;
+        margin: auto;
+    }
+}
+
+.menu_button:hover {
+    color: #fff;
+}
+
+.menu input {
+    margin: 0 2.5%;
+    padding: 0.2rem;
+    width: 95%;
+}
+
+.menu input[type="submit"] {
+    width: auto;
+    padding: 0.2rem 1rem;
+}
+
+.menu input[type="text"], .menu input[type="submit"] {
+    margin: 2.5%;
+}
+
+h3 {
+    margin-bottom: 0.3rem;
+}
+
+.error:not(.bold) {
+    color: orangered;
+    margin-bottom: 0.6rem;
+}
+
+.error.bold {
+    background-color:#fab565;
+    border:1px solid orangered;
+    padding: 0.3rem;
+    margin-bottom: 0.6rem;
+}
+
+.info {
+    margin-bottom: 0.8rem;
+}
+
+.success {
+    background-color:#CCFF66;
+    border: 1px solid green;
+    padding: 0.3rem;
+    margin-bottom: 0.6rem;
+}
