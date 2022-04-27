@@ -4,12 +4,16 @@ Vertretungsplan auf https://www.gauss-gymnasium.de/plan/.
 
 ## Einrichtung
 
-1. Kopieren Sie `settings.example.php` und benennen Sie die Kopie `settings.php`.
-1. Ergänzen Sie die fehlenden Einstellungen (`/* Change Me */`) in `settings.php` und konfigurieren sie die restlichen Einstellungen entsprechend Ihrer Bedürfnisse.
-1. Erstellen Sie das Verzeichnis für die Plan-Dateien (Standard: `data`, in `settings.php` einstellbar).
-1. Veröffentlichen Sie den Plan durch das Kopieren des gesamten Ordners auf einen Server.
+
+1. Git-Repo klonen (z.B. in einen Ordner namens `plan`).
+1. `settings.php.example` kopieren und Kopie in `settings.php` umbenennen.
+1. Fehlende Einstellungen (`/* Change Me */`) in `settings.php` ergänzen und restliche Einstellungen entsprechend der eigenen Bedürfnisse anpassen.
+1. Verzeichnis für die Plan-Dateien erstellen (Standard: `data`, in `settings.php` einstellbar).
+1. Vertretungsplan-System veröffentlichen, indem der gesamte Ordner (in unserem Beispiel `plan`) auf einen Server kopiert wird.
 
 ### Nutzer einrichten
+
+*Achtung: `settings.php` nie auf GitHub hochladen! Außerdem: Jeder mit Zugriff auf den Server kann die Zugangsdaten aller Nutzer sehen.*
 
 Nutzer werden in der `settings.php` definiert.
 
@@ -17,19 +21,21 @@ Nutzer werden in der `settings.php` definiert.
 
 *Admin-Rechte nötig*
 
-1. Legen Sie einen Vertretungsplan in z.B. Excel nach dem untenstehenden Schema an
-1. Wählen Sie "Plan hinzufügen" im Menu
-1. Stellen Sie das Datum es Plans ein
-1. Kopieren Sie Plan in den Text-Editor der Seite
-1. Drücken Sie "Speichern"
+1. Vertretungsplan in z.B. Excel nach dem untenstehenden Format anlegen
+1. Im Menü "Plan hinzufügen" wählen. Es erscheint die Seite zum Anlegen eines neuen Plans
+1. Datum des Plans einstellen
+1. Plan aus z.B. Excel in den Text-Editor der Seite kopieren
+1. "Speichern" drücken
 
 ### Tags
 
-Vertretungsstunden und allgemeine Informationen können mit Tags versehen: Besonderen Zeichenketten, die Zellen eine bestimmte Semantik geben. Je nach Tag kann das zu einem anderen Aussehen oder Verhalten führen.
+Vertretungsstunden und allgemeine Informationen können mit Tags versehen werden. Tags sind besondere Zeichenketten, die Zellen des Vertretungsplans eine bestimmte Semantik geben. Je nach Tag kann das zu einem anderen Aussehen oder Verhalten führen.
 
-Zuweisung eines Tags: Fügen Sie den Tag irgendwo in der Zelle mit der Information, die getaggt werden soll, ein. Der Tag wird bei der Anzeige herausgelöscht.
+#### Zuweisung von Tags
 
-Folgende Tags sind verfügbar:
+Gewünschten Tag irgendwo in der Zelle mit der Information, die getaggt werden soll, einfügen. Der Tag wird bei der Anzeige herausgelöscht. Valide Beispiele wären: `&meinTag;Inhalt`, `Inhalt &meinTag;` oder `Inh&meinTag;lt`.
+
+#### Verfügbare Tags
 
 Tag     | Beschreibung                              | Beispiel
 --------|-------------------------------------------|-------------
@@ -56,8 +62,8 @@ Beispiel für einen validen Stundenplan:
 
 ## JSON API
 
-Schedule verfügt über eine einfache JSON API. Sie kann entweder alle verfügbaren den Vertretungspläne für ein konkretes Datum zurückgeben.
-Die Anfrage geht durch einen POST-Request an `api/json.php` mit folgenden Request-Einstellungen.
+Schedule verfügt über eine einfache JSON API. Sie kann entweder alle verfügbaren Vertretungspläne oder den Plan für ein konkretes Datum zurückgeben.
+Die Anfrage geschieht durch einen POST-Request an `[URL-Vertretungsplan]/api/json.php` mit folgenden Request-Einstellungen.
 
 ```
 POST-Request
@@ -73,14 +79,14 @@ key=<API key>&date=<YYYY-MM-DD>
 
 Parameter | Beschreibung | Wert
 ----------|--------------|-----
-`key` | Authentifizierungs-Key für API | Erforderlich. Typ: `string`
-`date` | Datum des gewünschten Vertretungsplans. Falls nicht angegeben, werden alle verfügbaren Pläne zurückgegeben | Optional. Format `YYYY-MM-DD` entsprechen
+`key` | Authentifizierungs-Key für API | Erforderlich. Typ: `string`. Definiert in `settings.php`
+`date` | Datum des gewünschten Vertretungsplans. Falls nicht angegeben, werden alle verfügbaren Pläne zurückgegeben | Optional. Format muss `YYYY-MM-DD` entsprechen
 
 ### Antworten
 
 HTTP-Status-Code | Antwortinhalt | Beschreibung | Lösungsansatz
 -----------------|---------------|--------------|----------------
 `200` | Angefragte Pläne als JSON | Normalzustand | -
-`400` | Fehlerbeschreibung | Das angefragte Datum ist ungültig | Stellen Sie sicher, dass das Datum im Format `YYYY-MM-DD` vorliegt
-`401` | Fehlerbeschreibung | Authorisierung fehlgeschlagen. Entweder wurde keiner oder ein falscher API-Key mit der Anfrage verschickt | Überprüfen Sie den mitgeschickten API-Key
+`400` | Fehlerbeschreibung | Das angefragte Datum ist ungültig | Sicherstellen, dass Datum im Format `YYYY-MM-DD` vorliegt
+`401` | Fehlerbeschreibung | Authorisierung fehlgeschlagen. Entweder wurde keiner oder ein falscher API-Key mit der Anfrage verschickt | Mitgeschickten API-Key überprüfen
 `404` | Fehlerbeschreibung | Für dieses Datum existiert kein Plan | -
