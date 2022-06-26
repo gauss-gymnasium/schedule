@@ -1,5 +1,6 @@
 # Schedule
 
+Test
 Vertretungsplan auf https://www.gauss-gymnasium.de/plan/.
 
 ## Einrichtung
