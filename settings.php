@@ -1,6 +1,6 @@
 <?php
 if (!defined('INCLUDE_ROOT')) {
-    exit('Kein direkter Zugriff erlaubt.');
+  exit('Kein direkter Zugriff erlaubt.');
 }
 
 require_once('permissions.php');
@@ -11,7 +11,7 @@ require_once('schedule.php');
 // To add user: Insert `new User(...)` into $GLOBALS['users']. See permissions.php for available UserRoles.
 
 $GLOBALS['users'] = [
-  new User(/* CHANGE ME */, /* CHANGE ME */, UserRole::ADMIN, /* CHANGE ME */),
+  new User('test', 'test', UserRole::ADMIN, 'Test'),
 ];
 
 
@@ -19,7 +19,7 @@ $GLOBALS['users'] = [
 
 /* When querying the Schedule API, this key needs to be sent. */
 
-$GLOBALS['api_key'] = /* CHANGE ME */;
+$GLOBALS['api_key'] = 'test';
 
 
 /* --- SCHEDULE DISPLAY DEFAULTS ------------------------- */
@@ -36,7 +36,7 @@ The following list maps a tag_string (which you could choose freely)
 */
 
 $GLOBALS['tags'] = [
-    new Tag("&neu;", "new-changes")
+  new Tag("&neu;", "new-changes")
 ];
 
 /* Displayed as accordion section title for information which are not associated to a class. */
