@@ -126,7 +126,7 @@ if (isset($_POST['login'])) {
 					<h1 class="title"><?php echo (isset($heading) ? $heading : "") ?></h1>
 					<?php
 					if ($loginstatus == "success") {
-						success_msg("Erfolgerich eingeloggt!");
+						success_msg("Erfolgreich eingeloggt!");
 					} else if ($loginstatus == "failed") {
 						error_msg("Falsche Zugangsdaten!", true);
 					}
